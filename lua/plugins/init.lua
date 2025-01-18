@@ -37,6 +37,10 @@ require("lazy").setup({
 
     -- Treesitter
     { "nvim-treesitter/nvim-treesitter", lazy = false, build = ":TSUpdate" },
+
+    -- Autopairs
+    { "cohama/lexima.vim", lazy = false },
+
   },
 
   -- Configure any other settings here. See the documentation for more details.
