@@ -35,7 +35,10 @@ require("lazy").setup({
     -- Low-contrast dark theme
     { "dasupradyumna/midnight.nvim", lazy = false },
 
+    -- Treesitter
+    { "nvim-treesitter/nvim-treesitter", lazy = false, build = ":TSUpdate" },
   },
+
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "habamax" } },
