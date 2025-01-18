@@ -1,0 +1,2 @@
+Your custom plugins must go here.
+Files in this directory are automatically sourced when neovim startsup.
