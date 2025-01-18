@@ -25,6 +25,16 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
+    --==========================================================================
+    -- COLORSCHEMES
+    --==========================================================================
+    -- Theme based on Google's material design (DEFAULT)
+    { "NLKNguyen/papercolor-theme", lazy = false, priority = 1000 },
+    -- A dark charcoal theme
+    { "bluz71/vim-moonfly-colors", lazy = false },
+    -- Low-contrast dark theme
+    { "dasupradyumna/midnight.nvim", lazy = false },
+
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
