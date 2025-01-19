@@ -33,9 +33,11 @@ require("lazy").setup({
     -- Theme based on Google's material design (DEFAULT)
     { "NLKNguyen/papercolor-theme", lazy = false, priority = 1000 },
     -- A dark charcoal theme
-    { "bluz71/vim-moonfly-colors", lazy = false },
+    { "romainl/Apprentice", lazy = false },
     -- Low-contrast dark theme
     { "dasupradyumna/midnight.nvim", lazy = false },
+    -- Tempus themes for vim
+    { "https://gitlab.com/protesilaos/tempus-themes-vim.git", lazy = false },
 
     -- Treesitter
     { "nvim-treesitter/nvim-treesitter", lazy = false, build = ":TSUpdate" },
