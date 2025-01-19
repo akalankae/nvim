@@ -38,6 +38,8 @@ require("lazy").setup({
     { "dasupradyumna/midnight.nvim", lazy = false },
     -- Tempus themes for vim
     { "https://gitlab.com/protesilaos/tempus-themes-vim.git", lazy = false },
+    -- NOTE: you can CYCLE-THROUGH all available colorschemes using custom
+    -- keymappings <ALT-n> and <ALT-p>
 
     -- Treesitter
     { "nvim-treesitter/nvim-treesitter", lazy = false, build = ":TSUpdate" },
