@@ -47,6 +47,9 @@ require("lazy").setup({
     -- Autopairs
     { "cohama/lexima.vim", lazy = false },
 
+    -- Statusline
+    { "nvim-lualine/lualine.nvim", lazy = false, dependencies = { 
+        "nvim-tree/nvim-web-devicons" } },
   },
 
   -- Configure any other settings here. See the documentation for more details.

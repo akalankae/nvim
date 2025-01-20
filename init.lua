@@ -9,3 +9,4 @@ require("user.autocmd")
 
 require("plugins")
 require("plugins.treesitter")
+require("plugins.lualine")
