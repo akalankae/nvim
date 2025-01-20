@@ -13,7 +13,6 @@ local settings = {
   wrap = true,         -- long text wraps off right edge to next line
 
   signcolumn = "auto", -- hide signcolumn where possible
-  colorcolumn = "+1",  -- highlight one after last column
   cmdheight = 2,       -- increase commandline height
 
   ignorecase = true,
