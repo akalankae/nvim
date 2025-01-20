@@ -31,7 +31,11 @@ require("lazy").setup({
     -- COLORSCHEMES
     --==========================================================================
     -- Theme based on Google's material design (DEFAULT)
-    { "NLKNguyen/papercolor-theme", lazy = false, priority = 1000 },
+    { "NLKNguyen/papercolor-theme", lazy = false, priority = 1000,
+            config = function()
+                vim.cmd("colorscheme PaperColor")
+            end
+    },
     -- A dark charcoal theme
     { "romainl/Apprentice", lazy = false },
     -- Low-contrast dark theme
