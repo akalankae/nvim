@@ -36,8 +36,7 @@ require("lazy").setup({
     { "romainl/Apprentice", lazy = false },
     -- Low-contrast dark theme
     { "dasupradyumna/midnight.nvim", lazy = false },
-    -- Tempus themes for vim
-    { "https://gitlab.com/protesilaos/tempus-themes-vim.git", lazy = false },
+
     -- NOTE: you can CYCLE-THROUGH all available colorschemes using custom
     -- keymappings <ALT-n> and <ALT-p>
 
