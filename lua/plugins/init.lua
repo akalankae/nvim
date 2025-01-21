@@ -30,6 +30,9 @@ require("lazy").setup({
     --==========================================================================
     -- COLORSCHEMES
     --==========================================================================
+    -- NOTE: you can CYCLE-THROUGH all available colorschemes using custom
+    -- keymappings <ALT-n> and <ALT-p>
+
     -- Theme based on Google's material design (DEFAULT)
     { "NLKNguyen/papercolor-theme", lazy = false, priority = 1000,
             config = function()
@@ -41,9 +44,6 @@ require("lazy").setup({
     -- Low-contrast dark theme
     { "dasupradyumna/midnight.nvim", lazy = false },
 
-    -- NOTE: you can CYCLE-THROUGH all available colorschemes using custom
-    -- keymappings <ALT-n> and <ALT-p>
-
     -- Treesitter
     { "nvim-treesitter/nvim-treesitter", lazy = false, build = ":TSUpdate" },
 
@@ -54,6 +54,8 @@ require("lazy").setup({
     { "nvim-lualine/lualine.nvim", lazy = false, dependencies = { 
         "nvim-tree/nvim-web-devicons" } },
   },
+    -- Which key shows key mappings as you type
+    { "folke/which-key.nvim", event = "VeryLazy" },
 
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
