@@ -54,6 +54,13 @@ require("lazy").setup({
     { "nvim-lualine/lualine.nvim", lazy = false, dependencies = { 
         "nvim-tree/nvim-web-devicons" } },
   },
+
+    -- Telescope for navigation
+    { "nvim-telescope/telescope.nvim", branch = "0.1.x",
+      dependencies = { "nvim-lua/plenary.nvim", "BurntSushi/ripgrep",
+        { "nvim-telescope/telescope-fzf-native.nvim", build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release" }},
+    },
+
     -- Which key shows key mappings as you type
     { "folke/which-key.nvim", event = "VeryLazy" },
 
