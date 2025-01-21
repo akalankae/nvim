@@ -47,11 +47,11 @@ require("lazy").setup({
     { "romainl/Apprentice", lazy = false },
     -- Low-contrast colorschemes
     { "dasupradyumna/midnight.nvim", lazy = false }, -- dark
-    { "sainnhe/everforest", lazy = false }, -- light
+    { "sainnhe/everforest", lazy = false }, -- light/dark
     { "altercation/vim-colors-solarized", lazy = false }, -- light/dark
     ----------------------------------------------------------------------------
 
-    -- Treesitter
+    -- Treesitter code parser
     { "nvim-treesitter/nvim-treesitter", lazy = false, build = ":TSUpdate" },
 
     -- Autopairs
@@ -71,10 +71,10 @@ require("lazy").setup({
 
     -- Which key shows key mappings as you type
     { "folke/which-key.nvim", event = "VeryLazy" },
+
     ----------------------------------------------------------------------------
     -- end list of plugins
     ----------------------------------------------------------------------------
-
   },
 
   -- Configure any other settings here. See the documentation for more details.
