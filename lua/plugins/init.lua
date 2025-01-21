@@ -27,6 +27,10 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
+    ----------------------------------------------------------------------------
+    --                      LIST OF PLUGINS
+    ----------------------------------------------------------------------------
+
     --==========================================================================
     -- COLORSCHEMES
     --==========================================================================
@@ -45,6 +49,7 @@ require("lazy").setup({
     { "dasupradyumna/midnight.nvim", lazy = false }, -- dark
     { "sainnhe/everforest", lazy = false }, -- light
     { "altercation/vim-colors-solarized", lazy = false }, -- light/dark
+    ----------------------------------------------------------------------------
 
     -- Treesitter
     { "nvim-treesitter/nvim-treesitter", lazy = false, build = ":TSUpdate" },
@@ -55,7 +60,6 @@ require("lazy").setup({
     -- Statusline
     { "nvim-lualine/lualine.nvim", lazy = false, dependencies = { 
         "nvim-tree/nvim-web-devicons" } },
-  },
 
     -- Telescope for navigation
     { "nvim-telescope/telescope.nvim", branch = "0.1.x",
@@ -65,6 +69,11 @@ require("lazy").setup({
 
     -- Which key shows key mappings as you type
     { "folke/which-key.nvim", event = "VeryLazy" },
+    ----------------------------------------------------------------------------
+    -- end list of plugins
+    ----------------------------------------------------------------------------
+
+  },
 
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
