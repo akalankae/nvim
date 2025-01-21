@@ -41,8 +41,10 @@ require("lazy").setup({
     },
     -- A dark charcoal theme
     { "romainl/Apprentice", lazy = false },
-    -- Low-contrast dark theme
-    { "dasupradyumna/midnight.nvim", lazy = false },
+    -- Low-contrast colorschemes
+    { "dasupradyumna/midnight.nvim", lazy = false }, -- dark
+    { "sainnhe/everforest", lazy = false }, -- light
+    { "altercation/vim-colors-solarized", lazy = false }, -- light/dark
 
     -- Treesitter
     { "nvim-treesitter/nvim-treesitter", lazy = false, build = ":TSUpdate" },
