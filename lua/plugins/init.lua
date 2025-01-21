@@ -56,6 +56,8 @@ require("lazy").setup({
 
     -- Autopairs
     { "cohama/lexima.vim", lazy = false },
+    -- Indent-blankline
+    { "lukas-reineke/indent-blankline.nvim", main = "ibl" },
 
     -- Statusline
     { "nvim-lualine/lualine.nvim", lazy = false, dependencies = { 
