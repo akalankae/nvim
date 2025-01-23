@@ -26,7 +26,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Setup lazy.nvim
 require("lazy").setup({
-  spec = {
+  spec =  {
     ----------------------------------------------------------------------------
     --                      LIST OF PLUGINS
     ----------------------------------------------------------------------------
@@ -43,6 +43,7 @@ require("lazy").setup({
   { "dasupradyumna/midnight.nvim" }, -- dark
   { "sainnhe/everforest" }, -- light & dark
   { "altercation/vim-colors-solarized" }, -- light & dark
+
     ----------------------------------------------------------------------------
 
     -- Treesitter code parser
@@ -60,12 +61,17 @@ require("lazy").setup({
 
     -- Telescope for navigation
     { "nvim-telescope/telescope.nvim", branch = "0.1.x",
-      dependencies = { "nvim-lua/plenary.nvim", "BurntSushi/ripgrep",
-        { "nvim-telescope/telescope-fzf-native.nvim", build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release" }},
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+        "BurntSushi/ripgrep",
+        { "nvim-telescope/telescope-fzf-native.nvim", build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release" },
+      },
     },
 
     -- Which key shows key mappings as you type
     { "folke/which-key.nvim", event = "VeryLazy" },
+
+
 
     ----------------------------------------------------------------------------
     -- end list of plugins
