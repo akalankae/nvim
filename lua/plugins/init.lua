@@ -71,6 +71,20 @@ require("lazy").setup({
     -- Which key shows key mappings as you type
     { "folke/which-key.nvim", event = "VeryLazy" },
 
+    --==========================================================================
+    -- LANGUAGE SERVER PROTOCOL
+    --==========================================================================
+    { "williamboman/mason.nvim", build = "<cmd>MasonUpdate", lazy = true },
+    { "williamboman/mason-lspconfig.nvim", lazy = true,
+      dependencies = { "neovim/nvim-lspconfig" } },
+    -- completion plugins
+    { "hrsh7th/nvim-cmp", lazy = true, dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "L3MON4D3/LuaSnip",
+      "saadparwaiz1/cmp_luasnip",
+    } }
 
 
     ----------------------------------------------------------------------------
