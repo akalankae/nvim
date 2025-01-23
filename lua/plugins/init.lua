@@ -36,19 +36,13 @@ require("lazy").setup({
     --==========================================================================
     -- NOTE: you can CYCLE-THROUGH all available colorschemes using custom
     -- keymappings <ALT-n> and <ALT-p>
+  { "NLKNguyen/papercolor-theme", priority = 1000 }, -- based on google's material design
+  { "romainl/Apprentice" }, -- dark charcoal theme
 
-    -- Theme based on Google's material design (DEFAULT)
-    { "NLKNguyen/papercolor-theme", lazy = false, priority = 1000,
-            config = function()
-                vim.cmd("colorscheme PaperColor")
-            end
-    },
-    -- A dark charcoal theme
-    { "romainl/Apprentice", lazy = false },
-    -- Low-contrast colorschemes
-    { "dasupradyumna/midnight.nvim", lazy = false }, -- dark
-    { "sainnhe/everforest", lazy = false }, -- light/dark
-    { "altercation/vim-colors-solarized", lazy = false }, -- light/dark
+  -- Low-contrast themes
+  { "dasupradyumna/midnight.nvim" }, -- dark
+  { "sainnhe/everforest" }, -- light & dark
+  { "altercation/vim-colors-solarized" }, -- light & dark
     ----------------------------------------------------------------------------
 
     -- Treesitter code parser
@@ -60,8 +54,9 @@ require("lazy").setup({
     { "lukas-reineke/indent-blankline.nvim", main = "ibl" },
 
     -- Statusline
-    { "nvim-lualine/lualine.nvim", lazy = false, dependencies = { 
-        "nvim-tree/nvim-web-devicons" } },
+    { "nvim-lualine/lualine.nvim", dependencies = {
+        "nvim-tree/nvim-web-devicons" }
+    },
 
     -- Telescope for navigation
     { "nvim-telescope/telescope.nvim", branch = "0.1.x",
@@ -84,6 +79,6 @@ require("lazy").setup({
   -- automatically check for plugin updates
   checker = { enabled = true },
 
-  defaults = { lazy = true }, -- lazy-load plugins by default
+  defaults = { lazy = false }, -- do not lazy-load plugins by default
   lockfile = vim.fn.stdpath("data") .. "/.lazy-lock.json",
 })
