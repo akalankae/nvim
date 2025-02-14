@@ -6,13 +6,13 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  local out = vim.fn.system({ 
-      "git", "clone", "--filter=blob:none", "--branch=stable", 
-      lazyrepo, lazypath })
+  local out = vim.fn.system({
+    "git", "clone", "--filter=blob:none", "--branch=stable",
+    lazyrepo, lazypath })
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
+      { out,                            "WarningMsg" },
       { "\nPress any key to exit..." },
     }, true, {})
     vim.fn.getchar()
@@ -21,12 +21,12 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Make sure to setup `mapleader` and `maplocalleader` before loading lazy.nvim 
+-- Make sure to setup `mapleader` and `maplocalleader` before loading lazy.nvim
 -- so that mappings are correct.
 
 -- Setup lazy.nvim
 require("lazy").setup({
-  spec =  {
+  spec = {
     ----------------------------------------------------------------------------
     --                      LIST OF PLUGINS
     ----------------------------------------------------------------------------
@@ -36,31 +36,35 @@ require("lazy").setup({
     --==========================================================================
     -- NOTE: you can CYCLE-THROUGH all available colorschemes using custom
     -- keymappings <ALT-n> and <ALT-p>
-  { "NLKNguyen/papercolor-theme", priority = 1000 }, -- based on google's material design
-  { "romainl/Apprentice" }, -- dark charcoal theme
+    { "NLKNguyen/papercolor-theme",          priority = 1000 }, -- based on google's material design
+    { "romainl/Apprentice" },                        -- dark charcoal theme
 
-  -- Low-contrast themes
-  { "dasupradyumna/midnight.nvim" }, -- dark
-  { "sainnhe/everforest" }, -- light & dark
-  { "altercation/vim-colors-solarized" }, -- light & dark
+    -- Low-contrast themes
+    { "dasupradyumna/midnight.nvim" },    -- dark
+    { "sainnhe/everforest" },             -- light & dark
+    { "altercation/vim-colors-solarized" }, -- light & dark
 
     ----------------------------------------------------------------------------
 
     -- Treesitter code parser
-    { "nvim-treesitter/nvim-treesitter", lazy = false, build = ":TSUpdate" },
+    { "nvim-treesitter/nvim-treesitter",     lazy = false,   build = ":TSUpdate" },
 
     -- Autopairs
-    { "cohama/lexima.vim", lazy = false },
+    { "cohama/lexima.vim",                   lazy = false },
     -- Indent-blankline
     { "lukas-reineke/indent-blankline.nvim", main = "ibl" },
 
     -- Statusline
-    { "nvim-lualine/lualine.nvim", dependencies = {
+    {
+      "nvim-lualine/lualine.nvim",
+      dependencies = {
         "nvim-tree/nvim-web-devicons" }
     },
 
     -- Telescope for navigation
-    { "nvim-telescope/telescope.nvim", branch = "0.1.x",
+    {
+      "nvim-telescope/telescope.nvim",
+      branch = "0.1.x",
       dependencies = {
         "nvim-lua/plenary.nvim",
         "BurntSushi/ripgrep",
@@ -69,22 +73,29 @@ require("lazy").setup({
     },
 
     -- Which key shows key mappings as you type
-    { "folke/which-key.nvim", event = "VeryLazy" },
+    { "folke/which-key.nvim",    event = "VeryLazy" },
 
     --==========================================================================
     -- LANGUAGE SERVER PROTOCOL
     --==========================================================================
     { "williamboman/mason.nvim", build = "<cmd>MasonUpdate", lazy = true },
-    { "williamboman/mason-lspconfig.nvim", lazy = true,
-      dependencies = { "neovim/nvim-lspconfig" } },
+    {
+      "williamboman/mason-lspconfig.nvim",
+      lazy = true,
+      dependencies = { "neovim/nvim-lspconfig" }
+    },
     -- completion plugins
-    { "hrsh7th/nvim-cmp", lazy = true, dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "L3MON4D3/LuaSnip",
-      "saadparwaiz1/cmp_luasnip",
-    } }
+    {
+      "hrsh7th/nvim-cmp",
+      lazy = true,
+      dependencies = {
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
+        "L3MON4D3/LuaSnip",
+        "saadparwaiz1/cmp_luasnip",
+      }
+    }
 
 
     ----------------------------------------------------------------------------
