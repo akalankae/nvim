@@ -25,7 +25,6 @@ mason_lspconfig.setup_handlers({
     lspconfig[server_name].setup({
       capabilities = require("cmp_nvim_lsp").default_capabilities(),
       on_attach = function(client, buffer)
-        vim.notify(vim.inspect(client.server_capabilities))
         vim.notify(client.name .. " is attached to buffer " .. buffer)
       end,
     })
