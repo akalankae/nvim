@@ -37,11 +37,11 @@ require("lazy").setup({
     -- NOTE: you can CYCLE-THROUGH all available colorschemes using custom
     -- keymappings <ALT-n> and <ALT-p>
     { "NLKNguyen/papercolor-theme",          priority = 1000 }, -- based on google's material design
-    { "romainl/Apprentice" },                        -- dark charcoal theme
+    { "romainl/Apprentice" },                                   -- dark charcoal theme
 
     -- Low-contrast themes
-    { "dasupradyumna/midnight.nvim" },    -- dark
-    { "sainnhe/everforest" },             -- light & dark
+    { "dasupradyumna/midnight.nvim" },      -- dark
+    { "sainnhe/everforest" },               -- light & dark
     { "altercation/vim-colors-solarized" }, -- light & dark
 
     ----------------------------------------------------------------------------
