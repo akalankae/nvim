@@ -78,11 +78,12 @@ require("lazy").setup({
     --==========================================================================
     -- LANGUAGE SERVER PROTOCOL
     --==========================================================================
+    -- package manager for LSP related tools
     { "williamboman/mason.nvim", build = "<cmd>MasonUpdate", lazy = true },
     {
       "williamboman/mason-lspconfig.nvim",
       lazy = true,
-      dependencies = { "neovim/nvim-lspconfig" }
+      dependencies = { "neovim/nvim-lspconfig" }, -- configs for all LSP servers
     },
     -- completion plugins
     {
