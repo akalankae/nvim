@@ -1,0 +1,10 @@
+Vim ensures that vimscript and lua files in this directory are sourced AFTER
+all the plugin scripts in "plugin" directories are sourced.
+"Lazy loading" with lazy.nvim plugin manager complicates matters for the
+functionality of this directory.
+This is the ideal place for static, post-initialization customizations that are
+not incorporated into the plugin manager configuration. These could be
+auto-commands, key-maps,... etc.
+If some customizations need 2 or more plugins to be loaded, putting them here
+ensures that both of them are loaded before config scripts here are sourced.
+(Assuming plugins are installed and loaded in the first place!)
