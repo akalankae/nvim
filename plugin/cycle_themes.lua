@@ -4,11 +4,11 @@ local themes = vim.fn.getcompletion("", "color")
 local curr_i = nil -- index of currently active theme, default is NONE at start 
 local NUM_THEMES = #themes
 
-local function user_notify(success, theme)
+local function announce(success, theme)
     if success then
-        vim.notify("Colorscheme switched to " .. theme, vim.log.levels.INFO)
+        print("Colorscheme switched to " .. theme)
     else
-        vim.notify("Failed to load colorscheme " .. theme, vim.log.levels.INFO)
+        print("Failed to load colorscheme " .. theme)
     end
 end
 
@@ -21,7 +21,7 @@ local function cycle_theme_next()
     end
     local next_theme = themes[next_i]
     local success, _ = pcall(vim.cmd, "colorscheme " .. next_theme)
-    user_notify(success, next_theme)
+    announce(success, next_theme)
     curr_i =  next_i
 end
 
@@ -34,7 +34,7 @@ local function cycle_theme_prev()
     end
     local prev_theme = themes[prev_i]
     local success, _ = pcall(vim.cmd, "colorscheme " .. prev_theme)
-    user_notify(success, prev_theme)
+    announce(success, prev_theme)
     curr_i =  prev_i
 end
 

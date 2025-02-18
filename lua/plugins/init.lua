@@ -6,9 +6,7 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  local out = vim.fn.system({ 
-      "git", "clone", "--filter=blob:none", "--branch=stable", 
-      lazyrepo, lazypath })
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
@@ -27,54 +25,17 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
-    ----------------------------------------------------------------------------
-    --                      LIST OF PLUGINS
-    ----------------------------------------------------------------------------
-
     --==========================================================================
     -- COLORSCHEMES
     --==========================================================================
-    -- NOTE: you can CYCLE-THROUGH all available colorschemes using custom
-    -- keymappings <ALT-n> and <ALT-p>
-
     -- Theme based on Google's material design (DEFAULT)
-    { "NLKNguyen/papercolor-theme", lazy = false, priority = 1000,
-            config = function()
-                vim.cmd("colorscheme PaperColor")
-            end
-    },
+    { "NLKNguyen/papercolor-theme", lazy = false, priority = 1000 },
     -- A dark charcoal theme
-    { "romainl/Apprentice", lazy = false },
-    -- Low-contrast colorschemes
-    { "dasupradyumna/midnight.nvim", lazy = false }, -- dark
-    { "sainnhe/everforest", lazy = false }, -- light
-    { "altercation/vim-colors-solarized", lazy = false }, -- light/dark
-    ----------------------------------------------------------------------------
-
-    -- Treesitter
-    { "nvim-treesitter/nvim-treesitter", lazy = false, build = ":TSUpdate" },
-
-    -- Autopairs
-    { "cohama/lexima.vim", lazy = false },
-
-    -- Statusline
-    { "nvim-lualine/lualine.nvim", lazy = false, dependencies = { 
-        "nvim-tree/nvim-web-devicons" } },
-
-    -- Telescope for navigation
-    { "nvim-telescope/telescope.nvim", branch = "0.1.x",
-      dependencies = { "nvim-lua/plenary.nvim", "BurntSushi/ripgrep",
-        { "nvim-telescope/telescope-fzf-native.nvim", build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release" }},
-    },
-
-    -- Which key shows key mappings as you type
-    { "folke/which-key.nvim", event = "VeryLazy" },
-    ----------------------------------------------------------------------------
-    -- end list of plugins
-    ----------------------------------------------------------------------------
+    { "bluz71/vim-moonfly-colors", lazy = false },
+    -- Low-contrast dark theme
+    { "dasupradyumna/midnight.nvim", lazy = false },
 
   },
-
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "habamax" } },
