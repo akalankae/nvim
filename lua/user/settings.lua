@@ -28,7 +28,7 @@ local defaults = {
   dictionary = "/usr/share/dict/allwords.txt",
   clipboard = "unnamedplus",
 
-  termguicolors = vim.fn.has("termguicolors") and true or false,
+  termguicolors = vim.fn.has("termguicolors") == 1,
   completeopt = { "menu", "menuone", "noselect" },
 
 }
