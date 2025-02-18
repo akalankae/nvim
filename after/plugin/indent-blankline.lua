@@ -2,7 +2,9 @@
 utils = require("user.util")
 filepath = utils.get_curr_file_path(2) -- STACK LEVEL 2
 if not utils.plugin_found(filepath) then
-  vim.notify("indent-blankline is not installed", vim.log.levels.INFO)
+  vim.schedule(function()
+    vim.notify("indent-blankline is not installed", vim.log.levels.INFO)
+  end)
   return
 end
 
