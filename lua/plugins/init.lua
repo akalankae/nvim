@@ -15,6 +15,12 @@ if not vim.uv.fs_stat(lazypath) then
     }, true, {})
     vim.fn.getchar()
     os.exit(1)
+  else
+    vim.api.nvim_echo({
+      { "Could not clone git repo of lazy.nvim!\nExiting now...", "ErrorMsg" },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(2)
   end
 end
 vim.opt.rtp:prepend(lazypath)
