@@ -3,10 +3,10 @@
 -- 			User settings for neovim
 --=============================================================================
 
-local settings = {
   expandtab = true, -- space replaces tab
   softtabstop = 4,  -- number of spaces tab/backspace make cursor move
   shiftwidth = 4,   -- number of spaces used for indentation
+local defaults = {
   tabstop = 8,      -- if document has '\t' chars, show each as N spaces
 
   number = true,
@@ -33,7 +33,7 @@ local settings = {
 
 }
 
-for key, value in pairs(settings) do
+for key, value in pairs(defaults) do
   vim.opt[key] = value
 end
 
