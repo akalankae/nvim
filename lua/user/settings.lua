@@ -31,11 +31,12 @@ local defaults = {
   termguicolors = vim.fn.has("termguicolors") == 1,
   completeopt = { "menu", "menuone", "noselect" },
 
+  include = [=[\v<((do|load)file|require)\s*\(?['"]\zs[^'"]+\ze['"]]=],
+  includeexpr = "v:lua.FindRequiredPath(v:fname)",
+
 }
 
 for key, value in pairs(defaults) do
   vim.opt[key] = value
 end
 
-vim.opt.include = [=[\v<((do|load)file|require)\s*\(?['"]\zs[^'"]+\ze['"]]=]
-vim.opt.includeexpr = "v:lua.FindRequiredPath(v:fname)"
