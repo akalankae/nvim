@@ -3,11 +3,11 @@
 -- 			User settings for neovim
 --=============================================================================
 
-  expandtab = true, -- space replaces tab
-  softtabstop = 4,  -- number of spaces tab/backspace make cursor move
-  shiftwidth = 4,   -- number of spaces used for indentation
 local defaults = {
   tabstop = 8,      -- if document has '\t' chars, show each as N spaces
+  expandtab = true, -- no new '\t' characters inserted (space only)
+  softtabstop = 4,  -- pressing TAB or BACKSPACE makes cursor move N spaces
+  shiftwidth = 4,   -- number of spaces used for (auto)indentation
 
   number = true,
   textwidth = 80,      -- max line length is 80
