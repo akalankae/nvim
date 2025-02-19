@@ -40,24 +40,30 @@ vim.opt.rtp:prepend(lazypath)
 -- Initialize plugin manager: lazy.nvim
 -----------------------------------------
 require("lazy").setup({
-
   -- point to lua/plugins/ dir for plugin specs
-  spec = { import = "plugins" },
+  spec = {
+    -- List of plugins
+    -- Import all plugins from lua/plugins/
+    { import = "plugins" },
+  }, 
 
-  install = { colorscheme = { "industry" } }, -- theme when installing plugins
+-- Options for lazy.nvim
+  defaults = {
+    lazy = false,  -- disable lazy-loading by default
+  },
+  install = { colorscheme = { "darkblue" } }, -- theme when installing plugins
   checker = { enabled = true }, -- automatically check for plugin updates
-  defaults = { lazy = true },   -- lazy-load plugins by default
   lockfile = vim.fn.stdpath("data") .. "/.lazy-lock.json",
   opts = {
     rocks = {
-      enabled = true,
+      enabled = false,
       root = vim.fn.stdpath("data") .. "/lazy/lua-rocks",
       hererocks = nil,
     },
   },
   ui = {
     border = "rounded",
-    backdrop = 30, -- backdrop opacity [0:opaque, 100:transparent]
+    backdrop = 25, -- backdrop opacity [0:opaque, 100:transparent]
     title = "Lazy Management Window",
   },
 })
