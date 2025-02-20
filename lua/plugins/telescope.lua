@@ -33,7 +33,10 @@ return {
           n = {
           },
         },
-      }
+      },
+      pickers = {
+        find_files = { theme = "ivy" }, -- TODO: doesn't work for mapping <LEADER>en
+      },
     },
   },
 }
