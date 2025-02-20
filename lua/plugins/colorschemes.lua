@@ -13,6 +13,6 @@ return {
     end,
   },
 
-  { "dasupradyumna/midnight.nvim", lazy = false }, -- low-contrast & dark
-  { "vague2k/vague.nvim", lazy = false }, -- strings in italics
+  { "ofirgall/ofirkai.nvim" },
+  { "scottmckendry/cyberdream.nvim" }, -- high-contrast Cyberpunk vibes!
 }
