@@ -5,14 +5,6 @@ local colorschemes = {
   -- Theme based on Google's material design
   { "NLKNguyen/papercolor-theme", lazy = false },
 
-      init = function()
-        vim.g.material_style = "deep ocean"
-        vim.cmd [[colorscheme material]]
-      end,
-      opts = {
-        high_visibility = {
-          lighter = true,
-        }
   -- dark (charcoal) low-contrast theme (DEFAULT)
   { "bluz71/vim-moonfly-colors" },
   { "ofirgall/ofirkai.nvim" },
@@ -24,6 +16,13 @@ local colorschemes = {
   }, -- high-contrast Cyberpunk vibes!
   {
     "marko-cerovac/material.nvim",
+    init = function()
+      vim.g.material_style = "deep ocean"
+    end,
+    opts = {
+      high_visibility = {
+        lighter = true,
+      }
     },
   },
   { "tomasr/molokai" },
