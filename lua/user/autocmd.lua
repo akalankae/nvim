@@ -50,3 +50,17 @@ create_autocmd("VimEnter", {
     create_user_command("Light", "set bg=light", { bang = true })
   end,
 })
+
+
+--=============================================================================
+-- Launch toggable terminal session below running neovim instance
+--=============================================================================
+-- Disable linenumbers in terminal buffers.
+-- users/autocmd.lua: Autocommand <Leader>t launches the terminal.
+create_autocmd("TermOpen", {
+  group = vim.api.nvim_create_augroup("toggable-term", opts),
+  callback = function()
+    vim.opt.number = false
+    vim.opt.relativenumber = false
+  end
+})
