@@ -64,3 +64,29 @@ create_autocmd("TermOpen", {
     vim.opt.relativenumber = false
   end
 })
+
+--=============================================================================
+-- Stop autoclosing folds while in insert mode preserving foldlevel
+--=============================================================================
+-- These 2 autocommands are thanks to DeepSeek AI (DeepThink)
+-- These would stop folds from autoclosing during INSERT mode while you're
+-- editing source code. In INSERT mode all folds are left open (foldlevel 99)
+-- but when exiting INSERT mode foldlevel is restored to what it was.
+create_autocmd("InsertEnter", {
+  pattern = "*",
+  group = create_augroup("StopFoldsAutoClosing", opts),
+  callback = function()
+    vim.b.last_foldlevel = vim.wo.foldlevel
+    vim.wo.foldlevel = 99
+  end,
+})
+
+create_autocmd("InsertLeave", {
+  pattern = "*",
+  group = create_augroup("StopFoldsAutoClosing", opts),
+  callback = function()
+    if vim.b.last_foldlevel then
+      vim.wo.foldlevel = vim.b.last_foldlevel
+    end
+  end,
+})
