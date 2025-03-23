@@ -44,6 +44,11 @@ local server_settings = {
 return {
   {
     "neovim/nvim-lspconfig",
+    init = function()
+      -- putting `keys` to this table as a key breaks things so that Lsp<...> commands nvim-lspconfig adds are not loaded
+      -- so, ensure keys are mapped before the plugin is loaded
+      vim.keymap.set("n",  "<Leader>rn", function() vim.lsp.buf.rename() end, { desc = "Rename symbol under cursor" })
+    end,
     config = function()
     -- Use icons for diganostic signs (instead of letters)
       local diagnostic_icons = {
