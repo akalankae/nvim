@@ -1,6 +1,9 @@
 --============================================================================
 --                          Telescope Config
 --============================================================================
+local nnoremap = require("user.util").normal_noremap
+local telescope = require "telescope.builtin"
+
 return {
   {
     'nvim-telescope/telescope.nvim', tag = '0.1.8',
@@ -8,21 +11,26 @@ return {
       'nvim-lua/plenary.nvim',
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
-    config = function()
-      local builtin = require "telescope.builtin"
-      local map = function(lhs, rhs, opts)
-        vim.keymap.set("n", lhs, rhs, opts)
-      end
-      map("<leader>ff", builtin.find_files, { desc = "[f]ind [f]ile" })
-      map("<leader>fh", builtin.help_tags, { desc = "[f]ind [h]elp" })
-      map("<leader>fc", builtin.colorscheme, { desc = "[f]ind [c]olorscheme" })
-      map("<leader>fs", builtin.live_grep, { desc = "[f]ind [s]tring" })
+    init = function()
+      nnoremap("<leader>ff", telescope.find_files, { desc = "[f]ind [f]ile" })
+      nnoremap("<leader>fh", telescope.help_tags, { desc = "[f]ind [h]elp" })
+      nnoremap("<leader>fc", telescope.colorscheme, { desc = "[f]ind [c]olorscheme" })
+      nnoremap("<leader>fb", telescope.buffers, { desc="[f]ind [b]uffer" })
+      nnoremap("<leader>fs", telescope.live_grep, { desc = "[f]ind [s]tring" })
       -- Sift through telescope builtin functions (pickers, sorters, ... etc)
-      map("<leader>lb", builtin.builtin, { desc = "[l]ookup [b]uiltin telescope functions" })
+      nnoremap("<leader>ft", telescope.builtin, { desc = "[f]ind builtin [t]elescope function" })
       -- Edit neovim config from anywhere
-      map("<leader>en", function()
-        builtin.find_files({ cwd = vim.fn.stdpath("config") }) -- ? .themes.get_ivy()
+      nnoremap("<leader>en", function()
+        telescope.find_files({ cwd = vim.fn.stdpath("config") }) -- ? .themes.get_ivy()
       end, { desc = "[e]dit [n]eovim configuration" })
+      nnoremap("<leader>fd", function()
+        if telescope.diagnostics then
+          telescope.diagnostics()
+        else
+          vim.notify("Cannot find `telescope.diagnostics()`", vim.log.levels.INFO)
+        end
+      end,
+        { desc="[f]ind [d]iagnostic msg" })
     end,
     opts = {
       defaults = {
