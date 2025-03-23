@@ -45,10 +45,30 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
+    -- Use icons for diganostic signs (instead of letters)
+      local diagnostic_icons = {
+        Error = " ",
+        Warn  = " ",
+        Hint  = " ",
+        Info  = " ",
+      }
+      for type, icon_text in pairs(diagnostic_icons) do
+        local hl = "DiagnosticSign" .. type
+        vim.fn.sign_define(hl, { text = icon_text, texthl = hl, numhl = hl })
+      end
+      vim.diagnostic.config({
+        signs = true, -- enable signs
+        severity_sort = true,
+        update_in_insert = false,
+        underline = true,
+        virtual_text = {
+          source = "if_many", -- if multiple diagnostics
+       },
+      })
       local lspconfig = require "lspconfig"
       for server, settings in pairs(server_settings) do
         lspconfig[server].setup(settings)
       end
     end,
-  },
+  }
 }
