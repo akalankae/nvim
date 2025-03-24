@@ -43,17 +43,14 @@ local function create_floating_terminal(opts)
   return { buf = buf, win = win }
 end
 
-vim.api.nvim_create_user_command(
-  "Floatterm",
-  function()
-    vim.print(type(state.floating.win))
+-- ALT-t toggles/untoggles a floating window
+require("user.util").nnoremap("<M-t>", function()
+    -- close window without closing buffer (like nvim_win_close() does)
     if vim.api.nvim_win_is_valid(state.floating.win) then
-      -- close window without closing buffer (like nvim_win_close() does)
       vim.api.nvim_win_hide(state.floating.win)
     else
       state.floating = create_floating_terminal(state.floating)
     end
-    vim.print(state)
   end,
-  {}
+  {desc = "Launch/hide floating window"}
 )
