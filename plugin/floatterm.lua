@@ -18,10 +18,12 @@ local state = {
 -- * width: number of columns
 -- * height: number of rows
 -- * buf: buffer ID
+local RELATIVE_WIDTH = 0.8
+local RELATIVE_HEIGHT = 0.8
 local function create_floating_terminal(opts)
   opts = opts or {}
-  local width = opts.width or math.floor(vim.o.columns * 0.8)
-  local height = opts.height or math.floor(vim.o.lines * 0.8)
+  local width = opts.width or math.floor(vim.o.columns * RELATIVE_WIDTH)
+  local height = opts.height or math.floor(vim.o.lines * RELATIVE_HEIGHT)
   local luc_col = math.floor((vim.o.columns - width) / 2)
   local luc_row = math.floor((vim.o.lines - height) / 2)
 
