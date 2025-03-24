@@ -2,6 +2,7 @@
 --  				floatterm.lua
 --  		        Toggable floating terminal
 --==============================================================================
+-- Custom plugin to launch a floating terminal that can be toggled on & off
 
 -- Create a floating terminal
 local state = {
@@ -19,7 +20,7 @@ local function create_floating_terminal(opts)
   local luc_row = math.floor((vim.o.lines - height) / 2)
 
   -- create a scratch buffer (scratch=true) that is not inserted to list of
-  -- buffers (listed=false) if it does not already exist, if it does reuse it
+  -- buffers (listed=false) if it does not already exist. If it does, reuse it
   -- NB: vim doesn't ask for a name for a scratch buffer when quiting
   local buf = nil
   if vim.api.nvim_buf_is_valid(opts.buf) then
@@ -28,14 +29,16 @@ local function create_floating_terminal(opts)
     buf = vim.api.nvim_create_buf(false, true)
   end
   local config = {
-    relative = "editor",
+    relative = "editor", -- position relative to editor grid
     width = width,
     height = height,
     col = luc_col,
     row = luc_row,
-    border = "double",
+    border = "rounded",
     style = "minimal",
   }
+  -- create a new "viewport" (window) into buffer (buf) and enter the window
+  -- immediately (i.e. make it current window)
   local win = vim.api.nvim_open_win(buf, true, config)
   return { buf = buf, win = win }
 end
@@ -43,7 +46,9 @@ end
 vim.api.nvim_create_user_command(
   "Floatterm",
   function()
+    vim.print(type(state.floating.win))
     if vim.api.nvim_win_is_valid(state.floating.win) then
+      -- close window without closing buffer (like nvim_win_close() does)
       vim.api.nvim_win_hide(state.floating.win)
     else
       state.floating = create_floating_terminal(state.floating)
