@@ -3,8 +3,9 @@
 --  		        Toggable floating terminal
 --==============================================================================
 -- Custom plugin to launch a floating terminal that can be toggled on & off
+-- Terminal will be 80% of height and 80% of width of the editor.
 
--- Create a floating terminal
+-- Track buffer ID and window ID (initiliaze to invalid values)
 local state = {
   floating = {
     win = -1,
@@ -12,6 +13,11 @@ local state = {
   }
 }
 
+-- Takes an optional table parameter `opt`
+-- opts table can have following keys:
+-- * width: number of columns
+-- * height: number of rows
+-- * buf: buffer ID
 local function create_floating_terminal(opts)
   opts = opts or {}
   local width = opts.width or math.floor(vim.o.columns * 0.8)
@@ -43,14 +49,24 @@ local function create_floating_terminal(opts)
   return { buf = buf, win = win }
 end
 
--- ALT-t toggles/untoggles a floating window
-require("user.util").nnoremap("<M-t>", function()
-    -- close window without closing buffer (like nvim_win_close() does)
-    if vim.api.nvim_win_is_valid(state.floating.win) then
-      vim.api.nvim_win_hide(state.floating.win)
-    else
-      state.floating = create_floating_terminal(state.floating)
+-- Open a terminal buffer in a floating window if in NORMAL mode. If terminal
+-- buffer has been created in previous invocations, re-use it. If in TERMINAL
+-- mode, hide (close window preserving terminal buffer) the floating terminal.
+-- Ensure cursor is at the end of terminal prompt when entering terminal buffer.
+local function toggle_floating_terminal()
+  -- if window exists close it, if it doesn't create a new window
+  if vim.api.nvim_win_is_valid(state.floating.win) then
+    -- close window without closing buffer (unlike nvim_win_close())
+    vim.api.nvim_win_hide(state.floating.win)
+  else
+    state.floating = create_floating_terminal(state.floating)
+    if vim.bo[state.floating.buf].buftype ~= "terminal" then
+      vim.cmd.terminal()
     end
-  end,
-  {desc = "Launch/hide floating window"}
-)
+  end
+  -- position cursor at end of terminal prompt:
+  vim.api.nvim_input("a")
+end
+
+-- ALT-t toggles/untoggles a floating window
+vim.keymap.set({ "n", "t" }, "<M-t>", toggle_floating_terminal, { desc = "Launch/hide floating window" })
