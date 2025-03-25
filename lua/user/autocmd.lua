@@ -66,7 +66,7 @@ create_autocmd("TermOpen", {
 })
 
 --=============================================================================
--- Stop autoclosing folds while in insert mode preserving foldlevel
+-- Stop folds autoclosing in INSERT mode to preserve foldlevel
 --=============================================================================
 -- These 2 autocommands are thanks to DeepSeek AI (DeepThink)
 -- These would stop folds from autoclosing during INSERT mode while you're
