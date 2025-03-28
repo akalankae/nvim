@@ -66,8 +66,10 @@ local function toggle_floating_terminal()
       vim.cmd.terminal()
     end
   end
-  -- position cursor at end of terminal prompt:
-  vim.api.nvim_input("a")
+  if vim.bo.buftype == "terminal" then
+    -- position cursor at end of terminal prompt:
+    vim.api.nvim_input("a")
+  end
 end
 
 -- ALT-t toggles/untoggles a floating window
