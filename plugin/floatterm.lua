@@ -18,7 +18,7 @@ local state = {
 -- * width: number of columns
 -- * height: number of rows
 -- * buf: buffer ID
-local RELATIVE_WIDTH = 0.8
+local RELATIVE_WIDTH = 0.9
 local RELATIVE_HEIGHT = 0.8
 local function create_floating_terminal(opts)
   opts = opts or {}
