@@ -68,7 +68,7 @@ local server_settings = {
     },
     cmd = { vim.fn.expand("$HOME/git/ols/ols") },
     formatting = {
-      command = { vim.fn.expand("$HOME/git/ols/odinfmt"), "--stdin", "--character-width=80", "--tabs=false", "--tabs-width=4" },
+      command = { vim.fn.expand("$HOME/git/ols/odinfmt"), "-stdin" },
     }
   }
 }
