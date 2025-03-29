@@ -3,7 +3,7 @@
 --============================================================================
 
 -- Refer each server home page to look up available settings
--- NOTE: each of the tables in `server_settings` have `capabilities` and 
+-- NOTE: each of the tables in `server_settings` have `capabilities` and
 -- `on_attach` keys that can be used for autocompletion
 local server_settings = {
   lua_ls = {
@@ -33,6 +33,22 @@ local server_settings = {
   basedpyright = {
     -- TODO: read the docs of basedpyright and do this!
   },
+  -- Needs python-lsp-server, python-lsp-black (arch packages) installed
+  pylsp = {
+    settings = {
+      pylsp = {
+        plugins = {
+          pycodestyle = { enabled = false },
+          yapf = { enabled = false },
+          autopep8 = { enabled = false },
+          black = {
+            enabled = true,
+            line_length = 80
+          },
+        }
+      }
+    }
+  },
   clangd = {
     offsetEncoding = "utf-16"
   },
@@ -47,10 +63,10 @@ return {
     init = function()
       -- putting `keys` to this table as a key breaks things so that Lsp<...> commands nvim-lspconfig adds are not loaded
       -- so, ensure keys are mapped before the plugin is loaded
-      vim.keymap.set("n",  "<Leader>rn", function() vim.lsp.buf.rename() end, { desc = "Rename symbol under cursor" })
+      vim.keymap.set("n", "<Leader>rn", function() vim.lsp.buf.rename() end, { desc = "Rename symbol under cursor" })
     end,
     config = function()
-    -- Use icons for diganostic signs (instead of letters)
+      -- Use icons for diganostic signs (instead of letters)
       local diagnostic_icons = {
         Error = " ",
         Warn  = " ",
@@ -68,7 +84,7 @@ return {
         underline = true,
         virtual_text = {
           source = "if_many", -- if multiple diagnostics
-       },
+        },
       })
       local lspconfig = require "lspconfig"
       for server, settings in pairs(server_settings) do
