@@ -55,6 +55,22 @@ local server_settings = {
   bashls = {
     filetypes = { "bash", "sh" }, -- this is default
   },
+  -- Odin language serer at https://github.com/DanielGavin/ols.git
+  -- I have forked this repo to my account. Running build.sh installs ols on
+  -- root of the project. (same for odinfmt.sh for formatting)
+  -- `cmd` key points to this executable.
+  ols = {
+    init_options = {
+      checker_args = "-strict-style",
+      collections = {
+        { name = "shared", path = vim.fn.expand("$HOME/odin-lib") }
+      },
+    },
+    cmd = { vim.fn.expand("$HOME/git/ols/ols") },
+    formatting = {
+      command = { vim.fn.expand("$HOME/git/ols/odinfmt"), "--stdin", "--character-width=80", "--tabs=false", "--tabs-width=4" },
+    }
+  }
 }
 
 return {
