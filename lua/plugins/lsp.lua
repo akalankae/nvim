@@ -80,6 +80,7 @@ return {
       -- putting `keys` to this table as a key breaks things so that Lsp<...> commands nvim-lspconfig adds are not loaded
       -- so, ensure keys are mapped before the plugin is loaded
       vim.keymap.set("n", "<Leader>rn", function() vim.lsp.buf.rename() end, { desc = "Rename symbol under cursor" })
+      vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, { desc = "[G]o to [D]efinition" }) -- default: go to local definition
     end,
     config = function()
       -- Use icons for diganostic signs (instead of letters)
