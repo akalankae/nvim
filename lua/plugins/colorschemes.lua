@@ -8,12 +8,7 @@ local colorschemes = {
   -- dark (charcoal) low-contrast theme (DEFAULT)
   { "bluz71/vim-moonfly-colors" },
   { "ofirgall/ofirkai.nvim" },
-  {
-    "scottmckendry/cyberdream.nvim",
-    config = function()
-      vim.cmd [[colorscheme cyberdream]]
-    end,
-  }, -- high-contrast Cyberpunk vibes!
+  { "scottmckendry/cyberdream.nvim" }, -- high-contrast Cyberpunk vibes!
   {
     "marko-cerovac/material.nvim",
     init = function()
