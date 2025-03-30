@@ -108,3 +108,29 @@ create_autocmd("VimLeave", {
   group = record_colorscheme,
   desc = "Keep track of colorscheme"
 })
+
+--=============================================================================
+-- Load last used colorscheme on startup
+--=============================================================================
+
+-- Ensure our colorscheme data file exists, it contains a name of a colorscheme
+-- and this colorscheme is available to load.
+local function load_last_colorscheme()
+  local available_colorschemes = vim.fn.getcompletion("", "color")
+  local fallback = "default"
+  local use_colorscheme = nil
+  if vim.uv.fs_stat(colorscheme_file) then
+    local last_colorscheme = vim.fn.readfile(colorscheme_file)[1]
+    if last_colorscheme and vim.tbl_contains(available_colorschemes, last_colorscheme) then
+      use_colorscheme = last_colorscheme
+    end
+  end
+  vim.cmd(string.format("colorscheme %s", use_colorscheme or fallback))
+  vim.notify("colorscheme " .. vim.g.colors_name .. " was loaded", vim.log.levels.INFO)
+end
+
+create_autocmd("VimEnter", {
+  pattern = "*",
+  callback = load_last_colorscheme,
+  desc = "Load last used colorscheme on startup"
+})
