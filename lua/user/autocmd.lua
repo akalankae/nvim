@@ -49,6 +49,7 @@ create_autocmd("VimEnter", {
     create_user_command("Dark", "set bg=dark", { bang = true })
     create_user_command("Light", "set bg=light", { bang = true })
   end,
+  desc = "Register Dark/Light commands to switch background"
 })
 
 
