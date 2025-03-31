@@ -83,19 +83,16 @@ return {
       vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, { desc = "[G]o to [D]efinition" }) -- default: go to local definition
     end,
     config = function()
-      -- Use icons for diganostic signs (instead of letters)
-      local diagnostic_icons = {
-        Error = " ",
-        Warn  = " ",
-        Hint  = " ",
-        Info  = " ",
-      }
-      for type, icon_text in pairs(diagnostic_icons) do
-        local hl = "DiagnosticSign" .. type
-        vim.fn.sign_define(hl, { text = icon_text, texthl = hl, numhl = hl })
-      end
       vim.diagnostic.config({
-        signs = true, -- enable signs
+        -- Use icons for diganostic signs (instead of letters)
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = " ",
+            [vim.diagnostic.severity.WARN] = " ",
+            [vim.diagnostic.severity.INFO] = " ",
+            [vim.diagnostic.severity.HINT] = " ",
+          }
+        },
         severity_sort = true,
         update_in_insert = false,
         underline = true,
