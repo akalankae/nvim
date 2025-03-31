@@ -101,7 +101,7 @@ local record_colorscheme = create_augroup("RecordColorscheme", opts)
 create_autocmd("VimLeave", {
   pattern = "*",
   callback = function()
-    local code = vim.fn.writefile({vim.g.colors_name}, colorscheme_file)
+    local code = vim.fn.writefile({ vim.g.colors_name }, colorscheme_file)
     if code == -1 then
       vim.notify("Failed to write colorscheme to file", vim.log.levels.ERROR)
     end
