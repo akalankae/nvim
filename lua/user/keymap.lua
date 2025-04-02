@@ -82,3 +82,10 @@ normal_noremap("<Leader>t", function()
   vim.api.nvim_win_set_height(0, 15)
   vim.cmd.startinsert() -- go to Terminal-mode straight away
 end)
+
+--=============================================================================
+-- Quick escape to NORMAL mode from TERMINAL mode
+--=============================================================================
+-- In TERMINAL-JOB mode (to which you get after "i" or "a" in TERMINAL mode) and
+-- TERMINAL mode double tapping Escape key is akin to <CTRL-\> + <CTRL-n>
+vim.keymap.set("t", "<Esc><Esc>","<C-\\><C-n>")
