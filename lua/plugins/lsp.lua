@@ -33,22 +33,33 @@ local server_settings = {
   basedpyright = {
     -- TODO: read the docs of basedpyright and do this!
   },
-  -- Needs python-lsp-server, python-lsp-black (arch packages) installed
-  pylsp = {
     settings = {
-      pylsp = {
-        plugins = {
-          pycodestyle = { enabled = false },
-          yapf = { enabled = false },
-          autopep8 = { enabled = false },
-          black = {
-            enabled = true,
-            line_length = 80
-          },
+      python = {
+        analysis = {
+          typeCheckingMode = "basic",
         }
       }
+    },
+    flags = {
+      debounce_text_changes = 150,
     }
   },
+  -- Needs python-lsp-server, python-lsp-black (arch packages) installed
+  -- pylsp = {
+  --   settings = {
+  --     pylsp = {
+  --       plugins = {
+  --         pycodestyle = { enabled = false },
+  --         yapf = { enabled = false },
+  --         autopep8 = { enabled = false },
+  --         black = {
+  --           enabled = true,
+  --           line_length = 80
+  --         },
+  --       }
+  --     }
+  --   }
+  -- },
   clangd = {
     offsetEncoding = "utf-16"
   },
@@ -70,7 +81,7 @@ local server_settings = {
     formatting = {
       command = { vim.fn.expand("$HOME/git/ols/odinfmt"), "-stdin" },
     }
-  }
+  },
   gopls = {
     cmd = { "gopls", "serve" }, -- `serve`: run a LSP server for go
     settings = {
