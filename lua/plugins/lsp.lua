@@ -71,6 +71,23 @@ local server_settings = {
       command = { vim.fn.expand("$HOME/git/ols/odinfmt"), "-stdin" },
     }
   }
+  gopls = {
+    cmd = { "gopls", "serve" }, -- `serve`: run a LSP server for go
+    settings = {
+      gopls = {
+        gofumpt = true, -- enable gofumpt (for formatting)
+        analyses = {
+          unusedparams = true,
+          shadow = true,
+        },
+        staticcheck = true,
+        -- formatting = {
+          -- gofumpt = true, -- use gofumpt rules for formatting
+          -- goimports = true,
+        -- }
+      }
+    }
+  },
 }
 
 return {
