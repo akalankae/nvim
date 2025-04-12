@@ -33,6 +33,12 @@ local server_settings = {
   basedpyright = {
     -- TODO: read the docs of basedpyright and do this!
   },
+    on_attach = function(_, bufnr)
+      -- `omnifunc` value: "v:lua.vim.lsp.omnifunc"
+      vim.api.nvim_set_option_value("omnifunc", vim.bo.omnifunc, {
+        scope = "local", buf = bufnr
+      })
+    end,
     settings = {
       python = {
         analysis = {
