@@ -35,6 +35,16 @@ local function create_floating_terminal(opts)
     buf = opts.buf
   else
     buf = vim.api.nvim_create_buf(false, true)
+    -- above is supposed to create an `unlisted buffer` but for some reason the
+    -- created buffer is a listed buffer and shows up with `:ls` command.
+    -- TODO: NEEDS FIXING! but for time being I'm manually making it unlisted
+    -- NOTE: If you do not use vim.schedule() to wrap the code in a function,
+    -- un-setting `buflisted` does not work!
+    vim.schedule(function()
+      if vim.api.nvim_get_option_value("buflisted", {buf=buf}) then
+        vim.api.nvim_set_option_value("buflisted", false, {buf=buf})
+      end
+    end)
   end
   local config = {
     relative = "editor", -- position relative to editor grid
