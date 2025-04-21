@@ -9,6 +9,8 @@ return {
     "jiangmiao/auto-pairs",
     config = function()
       vim.g.AutoPairsFlyMode = 1
+      -- make single-quoted format string pair
+      vim.cmd[[ autocmd! FileType python let b:AutoPairs = AutoPairsDefine({"f'" : "'"}) ]]
     end,
   },
 }
