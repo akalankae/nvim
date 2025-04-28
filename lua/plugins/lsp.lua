@@ -75,6 +75,9 @@ local server_settings = {
   ruff = {
     -- on_attach: `hoverProvider` capability is manually disabled
   },
+  -- To make clangd aware of project structure and dependecies it needs
+  -- "compile_commands.json" file at root of the project dir. cmake can generate
+  -- this with `cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 [dir_of_CMakeLists.txt]`
   clangd = {
     -- cmd = {"clangd", "--background-index", "--clang-tidy", "--log=info"},
     offsetEncoding = "utf-16",
