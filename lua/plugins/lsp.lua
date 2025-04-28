@@ -118,8 +118,8 @@ local server_settings = {
         },
         staticcheck = true,
         -- formatting = {
-          -- gofumpt = true, -- use gofumpt rules for formatting
-          -- goimports = true,
+        -- gofumpt = true, -- use gofumpt rules for formatting
+        -- goimports = true,
         -- }
       }
     }
