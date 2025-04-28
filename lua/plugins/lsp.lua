@@ -157,8 +157,10 @@ return {
         },
       })
       local lspconfig = require "lspconfig"
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
       for server, settings in pairs(server_settings) do
         settings.on_attach = on_attach
+        settings.capabilities = capabilities
         lspconfig[server].setup(settings)
       end
     end,
