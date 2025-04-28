@@ -43,7 +43,9 @@ return {
         },
       },
       pickers = {
-        find_files = { theme = "ivy" }, -- TODO: doesn't work for mapping <LEADER>en
+        find_files = {
+          theme = "ivy",   -- TODO: doesn't work for mapping <LEADER>en
+        },
       },
     },
   },
