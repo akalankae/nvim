@@ -5,6 +5,18 @@
 -- Refer each server home page to look up available settings
 -- NOTE: each of the tables in `server_settings` have `capabilities` and
 -- `on_attach` keys that can be used for autocompletion
+
+-- Function to call when `client` (LSP server) attaches to a buffer. i.e.
+-- when `LspAttach` event is triggered.
+local on_attach = function(client, bufnr)
+  if client.name == "ruff" then
+    client.server_capabilities.hoverProvider = false
+    vim.schedule(function()
+      vim.notify("Hover provider capability disabled for " .. client.name, vim.log.levels.INFO)
+    end)
+  end
+end
+
 local server_settings = {
   lua_ls = {
     settings = {
@@ -133,6 +145,7 @@ return {
       })
       local lspconfig = require "lspconfig"
       for server, settings in pairs(server_settings) do
+        settings.on_attach = on_attach
         lspconfig[server].setup(settings)
       end
     end,
