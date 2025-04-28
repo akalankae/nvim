@@ -74,8 +74,14 @@ local server_settings = {
     -- on_attach: `hoverProvider` capability is manually disabled
   },
   clangd = {
-    offsetEncoding = "utf-16"
     -- cmd = {"clangd", "--background-index", "--clang-tidy", "--log=info"},
+    offsetEncoding = "utf-16",
+    backgroundIndex = true,
+    clangTidy = true,
+    log = "info",
+    init_options = {
+      fallbackFlags = "-std=c99"
+    }
   },
   bashls = {
     filetypes = { "bash", "sh" }, -- this is default
