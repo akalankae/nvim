@@ -26,7 +26,7 @@ if not vim.uv.fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
+      { out,                            "WarningMsg" },
       { "\nPress any key to exit..." },
     }, true, {})
     vim.fn.getchar()
@@ -46,14 +46,14 @@ require("lazy").setup({
     -- List of plugins
     -- Import all plugins from lua/plugins/
     { import = "plugins" },
-  }, 
+  },
 
--- Options for lazy.nvim
+  -- Options for lazy.nvim
   defaults = {
-    lazy = false,  -- disable lazy-loading by default
+    lazy = false,                             -- disable lazy-loading by default
   },
   install = { colorscheme = { "darkblue" } }, -- theme when installing plugins
-  checker = { enabled = true }, -- automatically check for plugin updates
+  checker = { enabled = true },               -- automatically check for plugin updates
   lockfile = vim.fn.stdpath("data") .. "/.lazy-lock.json",
   opts = {
     rocks = {
