@@ -44,7 +44,7 @@ local server_settings = {
   -- Alternates: "jedi_language_server", "pylsp", "pyright"
   basedpyright = {
     settings = {
-      python = {
+      basedpyright = {
         analysis = {
           typeCheckingMode = "recommended",
         }
