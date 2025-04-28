@@ -45,6 +45,8 @@ local server_settings = {
   basedpyright = {
     settings = {
       basedpyright = {
+        -- use Ruff's import organizer instead
+        disableOrganizedImports = true,
         analysis = {
           typeCheckingMode = "recommended",
         }
