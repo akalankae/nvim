@@ -44,6 +44,10 @@ return {
       },
       pickers = {
         find_files = {
+          find_command = {
+            "fd",
+            "--no-ignore", -- do not ignore gitignored files/dirs
+          },
           theme = "ivy",   -- TODO: doesn't work for mapping <LEADER>en
         },
       },
