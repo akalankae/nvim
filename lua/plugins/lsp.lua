@@ -114,7 +114,10 @@ return {
       -- putting `keys` to this table as a key breaks things so that Lsp<...> commands nvim-lspconfig adds are not loaded
       -- so, ensure keys are mapped before the plugin is loaded
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "[G]o to [D]efinition" }) -- default: go to local definition
+      vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "[G]o to [D]eclaration" })
+      vim.keymap.set("n", "gR", vim.lsp.buf.references, { desc = "[G]o to [R]eferences" })
       vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, { desc = "[R]e[n]ame symbol under cursor" })
+      vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action, { desc = "[C]ode [A]ction" })
     end,
     config = function()
       vim.diagnostic.config({
