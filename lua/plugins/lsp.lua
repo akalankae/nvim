@@ -75,6 +75,7 @@ local server_settings = {
   },
   clangd = {
     offsetEncoding = "utf-16"
+    -- cmd = {"clangd", "--background-index", "--clang-tidy", "--log=info"},
   },
   bashls = {
     filetypes = { "bash", "sh" }, -- this is default
