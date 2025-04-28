@@ -70,6 +70,9 @@ local server_settings = {
   --     }
   --   }
   -- },
+  ruff = {
+    -- on_attach: `hoverProvider` capability is manually disabled
+  },
   clangd = {
     offsetEncoding = "utf-16"
   },
