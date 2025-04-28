@@ -43,8 +43,6 @@ local server_settings = {
   },
   -- Alternates: "jedi_language_server", "pylsp", "pyright"
   basedpyright = {
-    -- TODO: read the docs of basedpyright and do this!
-  },
     settings = {
       python = {
         analysis = {
