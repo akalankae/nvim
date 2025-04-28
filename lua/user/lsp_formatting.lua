@@ -12,10 +12,6 @@ function _G.FormatOnSave()
     bufnr = bufnr,
     method = "textDocument/formatting"
   })
-  print("Attached clients")
-  for i, client in ipairs(clients) do
-    print(string.format("%d. %s[%d]", i, client.name, client.id))
-  end
   if #clients == 0 then
     vim.schedule(function()
       vim.notify(string.format("No formatters detected for %s (buffer %d)", filename, bufnr),

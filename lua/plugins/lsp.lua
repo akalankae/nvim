@@ -46,7 +46,7 @@ local server_settings = {
     settings = {
       python = {
         analysis = {
-          typeCheckingMode = "basic",
+          typeCheckingMode = "recommended",
         }
       }
     },
