@@ -17,6 +17,7 @@ local on_attach = function(client, bufnr)
   end
 end
 
+-- Server settings for each of the installed LSP servers
 local server_settings = {
   lua_ls = {
     settings = {
@@ -48,6 +49,9 @@ local server_settings = {
         -- use Ruff's import organizer instead
         disableOrganizedImports = true,
         analysis = {
+          -- make basedpyright ignore all filetypes to use Ruff exclusively
+          -- for linting
+          ignore = { "*" },
           typeCheckingMode = "recommended",
         }
       }
