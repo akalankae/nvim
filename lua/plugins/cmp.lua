@@ -1,3 +1,8 @@
+local function has_words_before()
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
 return {
   {
     "hrsh7th/nvim-cmp",
@@ -33,17 +38,18 @@ return {
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-space>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping.abort(),
-        ["<CR>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            if luasnip.expandable() then
-              luasnip.expand()
-            else
-              cmp.confirm({ select = true })
-            end
-          else
-            fallback()
-          end
-        end),
+        ["<CR>"] = cmp.mapping.confirm({ select = false }),
+        -- ["<CR>"] = cmp.mapping(function(fallback)
+        --   if cmp.visible() then
+        --     if luasnip.expandable() then
+        --       luasnip.expand()
+        --     else
+        --       cmp.confirm({ select = false })
+        --     end
+        --   else
+        --     fallback()
+        --   end
+        -- end),
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
