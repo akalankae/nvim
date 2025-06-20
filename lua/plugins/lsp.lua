@@ -49,9 +49,6 @@ local server_settings = {
         -- use Ruff's import organizer instead
         disableOrganizedImports = true,
         analysis = {
-          -- make basedpyright ignore all filetypes to use Ruff exclusively
-          -- for linting
-          ignore = { "*" },
           typeCheckingMode = "recommended",
         }
       }
