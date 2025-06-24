@@ -43,12 +43,8 @@ require("lazy").setup({
                 vim.cmd("colorscheme PaperColor")
             end
     },
-    -- A dark charcoal theme
-    { "romainl/Apprentice", lazy = false },
     -- Low-contrast colorschemes
     { "dasupradyumna/midnight.nvim", lazy = false }, -- dark
-    { "sainnhe/everforest", lazy = false }, -- light
-    { "altercation/vim-colors-solarized", lazy = false }, -- light/dark
     ----------------------------------------------------------------------------
 
     -- Treesitter
