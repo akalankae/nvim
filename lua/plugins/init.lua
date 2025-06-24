@@ -38,23 +38,23 @@ require("lazy").setup({
     -- keymappings <ALT-n> and <ALT-p>
 
     -- Theme based on Google's material design (DEFAULT)
-    { "NLKNguyen/papercolor-theme", lazy = false, priority = 1000,
+    { "NLKNguyen/papercolor-theme",  priority = 1000,
             config = function()
                 vim.cmd("colorscheme PaperColor")
             end
     },
     -- Low-contrast colorschemes
-    { "dasupradyumna/midnight.nvim", lazy = false }, -- dark
+    { "dasupradyumna/midnight.nvim"  }, -- dark, low-contrast
     ----------------------------------------------------------------------------
 
     -- Treesitter
-    { "nvim-treesitter/nvim-treesitter", lazy = false, build = ":TSUpdate" },
+    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 
     -- Autopairs
-    { "cohama/lexima.vim", lazy = false },
+    { "cohama/lexima.vim" },
 
     -- Statusline
-    { "nvim-lualine/lualine.nvim", lazy = false, dependencies = { 
+    { "nvim-lualine/lualine.nvim",  dependencies = { 
         "nvim-tree/nvim-web-devicons" } },
 
     -- Telescope for navigation
@@ -78,6 +78,6 @@ require("lazy").setup({
   -- automatically check for plugin updates
   checker = { enabled = true },
 
-  defaults = { lazy = true }, -- lazy-load plugins by default
+  defaults = { lazy = false }, -- do not lazy-load plugins by default
   lockfile = vim.fn.stdpath("data") .. "/.lazy-lock.json",
 })
