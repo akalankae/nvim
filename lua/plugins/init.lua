@@ -43,8 +43,12 @@ require("lazy").setup({
                 vim.cmd("colorscheme PaperColor")
             end
     },
-    -- Low-contrast colorschemes
+
     { "dasupradyumna/midnight.nvim"  }, -- dark, low-contrast
+    { "scottmckendry/cyberdream.nvim" }, -- dark, futuristic, high-contrast
+    -- onedark, onelight, onedark_vivid, onedark_dark, vaporwave
+    { "olimorris/onedarkpro.nvim", priority = 1000 }, -- Atom: light/dark
+    { "bluz71/vim-moonfly-colors", name = "moonfly", priority = 1000 },
     ----------------------------------------------------------------------------
 
     -- Treesitter
