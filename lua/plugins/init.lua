@@ -49,6 +49,8 @@ require("lazy").setup({
     -- onedark, onelight, onedark_vivid, onedark_dark, vaporwave
     { "olimorris/onedarkpro.nvim", priority = 1000 }, -- Atom: light/dark
     { "bluz71/vim-moonfly-colors", name = "moonfly", priority = 1000 },
+    { "vague2k/vague.nvim", priority = 1000 },
+    { "zootedb0t/citruszest.nvim", priority = 1000 },
     ----------------------------------------------------------------------------
 
     -- Treesitter
