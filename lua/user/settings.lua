@@ -5,7 +5,6 @@ local defaults = {
   shiftwidth = 4,   -- number of spaces used for (auto)indentation
 
   number = true,
-  textwidth = 80,      -- max line length is 80
   wrap = true,         -- long text wraps off right edge to next line
 
   signcolumn = "auto", -- hide signcolumn where possible
