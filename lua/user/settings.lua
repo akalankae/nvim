@@ -9,7 +9,7 @@ local settings = {
   shiftwidth = 4,   -- number of spaces used for indentation
 
   number = true,
-  textwidth = 80,      -- max line length is 80
+  textwidth = 0,       -- disable auto-insertion of NL after a given line width
   wrap = true,         -- long text wraps off right edge to next line
 
   signcolumn = "auto", -- hide signcolumn where possible
