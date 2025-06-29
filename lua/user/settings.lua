@@ -1,3 +1,7 @@
+-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+--                          settings.lua
+--                      Global settings for neovim
+-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 local defaults = {
   tabstop = 8,      -- if document has '\t' chars, show each as N spaces
   expandtab = true, -- no new '\t' characters inserted (space only)

@@ -1,15 +1,15 @@
---==============================================================================
+-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 --                          autocmd.lua
 --                  Custom autocommands for neovim
---==============================================================================
+-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 local opts = { clear = true }
 local create_autocmd = vim.api.nvim_create_autocmd
 local create_augroup = vim.api.nvim_create_augroup
 local create_user_command = vim.api.nvim_create_user_command
---=============================================================================
+-- ────────────────────────────────────────────────────────────────────────────
 -- Line Numbers
---=============================================================================
+-- ────────────────────────────────────────────────────────────────────────────
 -- Toggle/untoggle relative/absolute line numbers depending on active/inactive
 -- state of the buffers.
 local toggle_ln = create_augroup("NumberToggle", opts)
@@ -26,9 +26,9 @@ create_autocmd(
   { pattern = "*", command = "set norelativenumber", group = toggle_ln }
 )
 
---=============================================================================
+-- ────────────────────────────────────────────────────────────────────────────
 -- Restore Cursor Position
---=============================================================================
+-- ────────────────────────────────────────────────────────────────────────────
 -- move cursor to where it was the last time in the file
 -- source: https://builtin.com/software-engineering-perspectives/neovim-configuration
 create_autocmd("BufReadPost", {
@@ -40,9 +40,9 @@ create_autocmd("BufReadPost", {
   end,
 })
 
---=============================================================================
+-- ────────────────────────────────────────────────────────────────────────────
 -- Register user commands to switch background color between Dark and Light
---=============================================================================
+-- ────────────────────────────────────────────────────────────────────────────
 create_autocmd("VimEnter", {
   pattern = "*",
   callback = function()
@@ -53,9 +53,9 @@ create_autocmd("VimEnter", {
 })
 
 
---=============================================================================
+-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 -- Launch toggable terminal session below running neovim instance
---=============================================================================
+-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 -- Disable linenumbers in terminal buffers.
 -- users/autocmd.lua: Autocommand <Leader>t launches the terminal.
 create_autocmd("TermOpen", {
@@ -66,9 +66,9 @@ create_autocmd("TermOpen", {
   end
 })
 
---=============================================================================
+-- ────────────────────────────────────────────────────────────────────────────
 -- Stop folds autoclosing in INSERT mode to preserve foldlevel
---=============================================================================
+-- ────────────────────────────────────────────────────────────────────────────
 -- These 2 autocommands are thanks to DeepSeek AI (DeepThink)
 -- These would stop folds from autoclosing during INSERT mode while you're
 -- editing source code. In INSERT mode all folds are left open (foldlevel 99)
@@ -92,9 +92,9 @@ create_autocmd("InsertLeave", {
   end,
 })
 
---=============================================================================
+-- ────────────────────────────────────────────────────────────────────────────
 -- Record last used colorscheme on exit
---=============================================================================
+-- ────────────────────────────────────────────────────────────────────────────
 local colorscheme_file = vim.fn.stdpath("state") .. "/colorscheme.dat"
 local record_colorscheme = create_augroup("RecordColorscheme", opts)
 
@@ -110,10 +110,9 @@ create_autocmd("VimLeave", {
   desc = "Keep track of colorscheme"
 })
 
---=============================================================================
+-- ────────────────────────────────────────────────────────────────────────────
 -- Load last used colorscheme on startup
---=============================================================================
-
+-- ────────────────────────────────────────────────────────────────────────────
 -- Ensure our colorscheme data file exists, it contains a name of a colorscheme
 -- and this colorscheme is available to load.
 local function load_last_colorscheme()

@@ -1,7 +1,7 @@
---==============================================================================
+-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 --  				keymap.lua
 --  			Custom keymappings for neovim
---==============================================================================
+-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 local util = require "user.util"
 
 -- Setup global LEADER key
@@ -58,9 +58,9 @@ util.nnoremap("<C-u>", "<C-u>zz")
 util.nnoremap("k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 util.nnoremap("j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
---=============================================================================
+-- ────────────────────────────────────────────────────────────────────────────
 -- Launch toggable terminal session below running neovim instance
---=============================================================================
+-- ────────────────────────────────────────────────────────────────────────────
 -- user/autocmd.lua: "TermOpen" disables line numbers
 -- :term or :terminal opens a terminal session on a new buffer
 -- You will initially be in normal mode (i.e. you cannot enter text into the
@@ -79,9 +79,9 @@ util.nnoremap("<Leader>t", function()
   vim.cmd.startinsert() -- go to Terminal-mode straight away
 end)
 
---=============================================================================
+-- ────────────────────────────────────────────────────────────────────────────
 -- Quick escape to NORMAL mode from TERMINAL mode
---=============================================================================
+-- ────────────────────────────────────────────────────────────────────────────
 -- In TERMINAL-JOB mode (to which you get after "i" or "a" in TERMINAL mode) and
 -- TERMINAL mode double tapping Escape key is akin to <CTRL-\> + <CTRL-n>
 vim.keymap.set("t", "<Esc><Esc>","<C-\\><C-n>")
