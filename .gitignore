@@ -1,3 +1,4 @@
 plugin/float_term.lua
 *.json
 spell/*
+colors/*
