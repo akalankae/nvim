@@ -57,6 +57,7 @@ local server_settings = {
             parameterNames = false,      -- turn-off ghost_text (no effect)
           }
         },
+        allowedUntypedLibraries = { "wx" },
       }
     },
     flags = {
