@@ -49,14 +49,14 @@ local server_settings = {
         -- use Ruff's import organizer instead
         disableOrganizedImports = true,
         analysis = {
-          typeCheckingMode = "recommended",
-        }
+          typeCheckingMode = "standard", -- turned off annoying basedpyright ghost_text
           -- inlayHints attempt to turn-off specific ghost_text msgs below, but not working
           inlayHints = {
             variableTypes = false,       -- turn-off ghost_text (no effect)
             functionReturnTypes = false, -- turn-off ghost_text (no effect)
             parameterNames = false,      -- turn-off ghost_text (no effect)
           }
+        },
       }
     },
     flags = {
