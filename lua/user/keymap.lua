@@ -4,8 +4,8 @@
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 local util = require "user.util"
 
--- Setup global LEADER key
-vim.g.mapleader = ";"
+-- Setup global LEADER key (Spacebar)
+vim.g.mapleader = " "
 
 -- Close window with ctrl-q
 util.nnoremap("<C-q>", "<C-w>q")
