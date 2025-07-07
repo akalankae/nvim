@@ -36,4 +36,8 @@ require("lazy").setup({
     { import = "plugins" } -- Import all lua/plugins/*.lua files
   },
   checker = { enabled = true }, -- automatically check for plugin updates
+  install = {
+    -- colorscheme used when lazy installs plugins
+    colorscheme = { "cyberdream", "darkblue" }
+  }
 })
