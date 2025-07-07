@@ -32,6 +32,11 @@ local defaults = {
   include = [=[\v<((do|load)file|require)\s*\(?['"]\zs[^'"]+\ze['"]]=],
   includeexpr = "v:lua.FindRequiredPath(v:fname)",
 
+  fillchars = {
+    vert = "┃", vertleft = "┫", vertright = "┣",
+    horiz = "┅", horizup = "┻", horizdown = "┳", verthoriz = "╋"
+  }
+
 }
 
 for key, value in pairs(defaults) do
