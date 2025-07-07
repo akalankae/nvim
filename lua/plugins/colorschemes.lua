@@ -7,5 +7,9 @@ return {
     "bluz71/vim-moonfly-colors",
     name = "moonfly",
     priority = 1000,
+    init = function(_)
+      vim.g.moonflyCursorColor = true
+      vim.g.moonflyWinSeparator = 2
+    end,
   }
 }
