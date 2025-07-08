@@ -11,5 +11,9 @@ return {
       vim.g.moonflyCursorColor = true
       vim.g.moonflyWinSeparator = 2
     end,
+  },
+  {
+    "Iron-E/nvim-highlite",
+    priority = 1000,
   }
 }
