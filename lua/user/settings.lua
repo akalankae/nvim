@@ -9,7 +9,7 @@ local defaults = {
   shiftwidth = 4,   -- number of spaces used for (auto)indentation
 
   number = true,
-  wrap = true,         -- long text wraps off right edge to next line
+  wrap = false,     -- filetype configs can enable line wrapping as needed
 
   signcolumn = "auto", -- hide signcolumn where possible
   cmdheight = 2,       -- increase commandline height
@@ -32,11 +32,11 @@ local defaults = {
   include = [=[\v<((do|load)file|require)\s*\(?['"]\zs[^'"]+\ze['"]]=],
   includeexpr = "v:lua.FindRequiredPath(v:fname)",
 
+  -- `fillchars` separate splits
   fillchars = {
     vert = "┃", vertleft = "┫", vertright = "┣",
     horiz = "┅", horizup = "┻", horizdown = "┳", verthoriz = "╋"
   }
-
 }
 
 for key, value in pairs(defaults) do
