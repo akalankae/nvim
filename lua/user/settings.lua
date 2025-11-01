@@ -36,7 +36,10 @@ local defaults = {
   fillchars = {
     vert = "┃", vertleft = "┫", vertright = "┣",
     horiz = "┅", horizup = "┻", horizdown = "┳", verthoriz = "╋"
-  }
+  },
+
+  -- guicursor = "n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
+  guicursor = "n-v-c:block,i-ci-ve:ver20,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 }
 
 for key, value in pairs(defaults) do
