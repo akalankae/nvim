@@ -6,7 +6,17 @@ return {
   { "NLKNguyen/papercolor-theme",  priority = 1000 },
 
   { "dasupradyumna/midnight.nvim", priority = 1000 }, -- dark, low-contrast
-  { "scottmckendry/cyberdream.nvim", priority = 1000 }, -- dark, futuristic, high-contrast
+  {
+    "scottmckendry/cyberdream.nvim",
+    priority = 1000,
+    opts = {
+      transparent = true, -- make bg darker on kitty
+      italic_comments = true,
+      highlights = {
+        String = { fg = "#5eff6c", bg = "NONE", italic = true },
+      }
+    }
+  }, -- dark, futuristic, high-contrast
 
   -- Based on Atom: onedark, onelight, onedark_vivid, onedark_dark, vaporwave
   { "olimorris/onedarkpro.nvim", priority = 1000 },
