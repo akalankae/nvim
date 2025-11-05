@@ -11,7 +11,7 @@ local defaults = {
   number = true,
   wrap = true,         -- long text wraps off right edge to next line
 
-  signcolumn = "auto", -- hide signcolumn where possible
+  signcolumn = "yes",  -- always show the signcolumn
   cmdheight = 2,       -- increase commandline height
 
   ignorecase = true,
