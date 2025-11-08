@@ -117,7 +117,7 @@ create_autocmd("VimLeave", {
 -- and this colorscheme is available to load.
 local function load_last_colorscheme()
   local available_colorschemes = vim.fn.getcompletion("", "color")
-  local fallback = "default"
+  local fallback = "koehler"
   local use_colorscheme = nil
   if vim.uv.fs_stat(colorscheme_file) then
     local last_colorscheme = vim.fn.readfile(colorscheme_file)[1]
