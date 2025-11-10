@@ -75,7 +75,7 @@ vim.keymap.set("t", "<Esc><Esc>","<C-\\><C-n>")
 -- ────────────────────────────────────────────────────────────────────────────
 vim.keymap.set("n", "q", function()
   if vim.o.filetype == "qf" then
-    vim.cmd [[quit]]
+    vim.cmd.quit()
   end
 end,
 { desc="close quickfix lists with `q`" })
