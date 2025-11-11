@@ -80,3 +80,10 @@ vim.keymap.set("n", "q", function()
   end
 end,
 { desc="close quickfix buffers with `q`" })
+
+
+-- ────────────────────────────────────────────────────────────────────────────
+-- Quickly jump forward and backward between available colorschemes
+-- ────────────────────────────────────────────────────────────────────────────
+vim.keymap.set({"n", "v", "o"}, "<M-n>", "<Plug>(NextColorscheme)")
+vim.keymap.set({"n", "v", "o"}, "<M-p>", "<Plug>(PrevColorscheme)")
