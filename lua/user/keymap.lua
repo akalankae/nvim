@@ -76,6 +76,7 @@ vim.keymap.set("t", "<Esc><Esc>","<C-\\><C-n>")
 vim.keymap.set("n", "q", function()
   if vim.o.filetype == "qf" then
     vim.cmd.quit()
+    vim.notify("Closed quickfix buffer", vim.log.levels.INFO)
   end
 end,
-{ desc="close quickfix lists with `q`" })
+{ desc="close quickfix buffers with `q`" })
