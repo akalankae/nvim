@@ -33,7 +33,7 @@
 - :help scriptnames
 - :help autoload
 - :help plugin.txt
-- :help ftplugin.txt
+- :help ftplugin
 - :help after-directory
 - :help runtime
 - :help autocmd
@@ -80,7 +80,7 @@
 - [ ] :help scriptnames
 - [ ] :help autoload
 - [ ] :help plugin.txt
-- [ ] :help ftplugin.txt
+- [ ] :help ftplugin
 - [ ] :help after-directory
 - [ ] :help runtime
 - [ ] :help autocmd
