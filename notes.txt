@@ -1,0 +1,12 @@
+# NOTES
+
+## scriptnames (scr) command
+print names of sourced scripts in the order of sourcing
+
+## getscriptinfo({opts}) function
+return a list of script info dictionaries
+{opts}
+* name="something" -> match all scripts with "something" in path
+* sid=x -> dictionary with given script ID (ie. SID)
+If `name` is given returned list has info dicts for scripts whose filepath matches given name. These dicts have keys: `name`, `sid`.
+If `sid` is given `name` is ignored. And returned dictionary has 2 additional items: `functions` list of script-local functions defined in the script, `variables` list of script-local variables defined in the script.
