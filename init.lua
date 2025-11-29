@@ -6,4 +6,3 @@
 require "user.settings"
 require "user.keymap"
 require "user.autocmd"
-require "user.lsp"
