@@ -11,10 +11,14 @@ return {
     priority = 1000,
     opts = {
       transparent = true, -- make bg darker on kitty
+      saturation = 1,
       italic_comments = true,
       highlights = {
         String = { fg = "#5eff6c", bg = "NONE", italic = true },
-      }
+      },
+      extensions = {
+        telescope = true,
+      },
     }
   },
 }
