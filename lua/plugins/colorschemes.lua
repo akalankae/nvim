@@ -5,7 +5,7 @@ return {
   -- Based on Google's material design
   { "NLKNguyen/papercolor-theme",  priority = 1000 },
 
-  { "dasupradyumna/midnight.nvim", priority = 1000 }, -- dark, low-contrast
+  -- Futuristic, high-contrast, dark colorscheme
   {
     "scottmckendry/cyberdream.nvim",
     priority = 1000,
@@ -16,12 +16,5 @@ return {
         String = { fg = "#5eff6c", bg = "NONE", italic = true },
       }
     }
-  }, -- dark, futuristic, high-contrast
-
-  -- Based on Atom: onedark, onelight, onedark_vivid, onedark_dark, vaporwave
-  { "olimorris/onedarkpro.nvim", priority = 1000 },
-
-  { "bluz71/vim-moonfly-colors", name = "moonfly", priority = 1000 },
-  { "vague2k/vague.nvim", priority = 1000 },
-  { "zootedb0t/citruszest.nvim", priority = 1000 }
+  },
 }
