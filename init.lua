@@ -10,7 +10,7 @@ require "user.globals"
 require "user.settings"
 require "user.keymap"
 require "user.autocmd"
-require "user.lsp_formatting"
+require "user.lsp"
 
 --=============================================================================
 --                  SETUP PLUGIN CONFIGURATION

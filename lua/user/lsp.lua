@@ -1,3 +1,6 @@
+vim.lsp.enable({ "lua_ls", "basedpyright", "clangd", "bashls" })
+
+
 -- Code formatting by attached LSP servers
 -- When multiple LSP servers are attached that have the capability of document
 -- formatting, there is a conflict when format-on-save autocommand is registered
