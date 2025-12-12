@@ -7,7 +7,7 @@ return {
   },
   main = "nvim-treesitter.configs",
   opts = {
-    ensure_installed = { "lua", "python", "c", "bash" },
+    ensure_installed = { "lua", "python", "c", "bash", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
     sync_install = false,
     auto_install = true,
     highlight = {
