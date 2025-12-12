@@ -55,7 +55,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   desc = "Format on save with preferred language server"
 })
 
-vim.lsp.set_log_level("warn")
+vim.lsp.log.set_level("warn")
 vim.lsp.enable({
   "lua_ls",
   "basedpyright",
