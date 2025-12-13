@@ -9,7 +9,7 @@ local insert_noremap = util.insert_noremap
 local visual_noremap = util.visual_noremap
 
 -- Setup global LEADER key
-vim.g.mapleader = ";"
+vim.g.mapleader = " "
 
 -- Close window with ctrl-q
 normal_noremap("<C-q>", "<C-w>q")
