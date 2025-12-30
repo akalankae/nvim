@@ -37,7 +37,7 @@ end
 -- NOTE: needs some "magic" to escape hyphen in file names ("a-b" -> "a%-b")
 function utils.plugin_found(config_path)
   local basename = vim.fs.basename(config_path)
-  for _, plugin in ipairs(PLUGINS.LIST) do
+  for _, plugin in ipairs(plugins) do
     if basename:match(vim.pesc(plugin)) then
       return plugin
     end

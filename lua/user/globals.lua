@@ -1,17 +1,20 @@
--- some global variables
 
-local plugin_mgr = "lazy" -- TODO/IDEA: ? configurable plugin manager
+-- Protected require function
+function _G.prequire(module_name)
+  local success, module = pcall(require, module_name)
+  if not success then
+    vim.notify(module, vim.log.levels.ERROR)
+    return
+  end
+  return module
+end
 
--- NOTE: contains the list of plugins at start up time, during session new
--- plugins maybe installed and previous plugins maybe uninstalled, but this list
--- remains the same.
-PLUGINS = {
-  DIR = vim.fs.joinpath(vim.fn.stdpath("data"), plugin_mgr),
-  LIST = {},
-}
+-- Global list of plugins
+_G.plugins = {}
 
-for name, type in vim.fs.dir(PLUGINS.DIR) do
+local plugin_dir = vim.fn.stdpath("data") .. "/lazy"
+for node, type in vim.fs.dir(plugin_dir) do
   if type == "directory" then
-    table.insert(PLUGINS.LIST, name)
+    table.insert(_G.plugins, node)
   end
 end

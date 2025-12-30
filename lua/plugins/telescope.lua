@@ -1,9 +1,6 @@
 --============================================================================
 --                          Telescope Config
 --============================================================================
-local nnoremap = require("user.util").normal_noremap
-local telescope = require "telescope.builtin"
-
 return {
   {
     "nvim-telescope/telescope.nvim",
@@ -13,6 +10,9 @@ return {
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
     init = function()
+      local nnoremap = require("user.util").normal_noremap
+      local telescope = require("telescope.builtin")
+
       nnoremap("<leader>ff", telescope.find_files, { desc = "[f]ind [f]ile" })
       nnoremap("<leader>fh", telescope.help_tags, { desc = "[f]ind [h]elp" })
       nnoremap("<leader>fc", telescope.colorscheme, { desc = "[f]ind [c]olorscheme" })
