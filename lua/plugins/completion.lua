@@ -86,7 +86,7 @@ return {
         })
       }
       opts.experimental = {
-        ghost_text = false, -- not working!
+        ghost_text = true, -- not working!
       }
     return opts
   end,
