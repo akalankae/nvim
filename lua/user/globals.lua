@@ -9,7 +9,7 @@ function _G.prequire(module_name)
   return module
 end
 
--- Global list of plugins
+-- Global list of plugins. Use `:lua vim.print(plugins)`
 _G.plugins = {}
 
 local plugin_dir = vim.fn.stdpath("data") .. "/lazy"
