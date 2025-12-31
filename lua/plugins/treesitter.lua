@@ -9,9 +9,7 @@ vim.api.nvim_create_autocmd('BufEnter', {
 return {
   "nvim-treesitter/nvim-treesitter",
   enabled = true,
-  branch = "master",
   build = ":TSUpdate",
-  main = "nvim-treesitter.configs",
   opts = {
     ensure_installed = { "lua", "c", "python" },
     auto_install = true, -- install parsers when entering a buffer
