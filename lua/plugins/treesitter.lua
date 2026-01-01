@@ -7,12 +7,16 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     dependencies = {
-      "nvim-treesitter/nvim-treesitter-textobjects",
-      "nvim-treesitter/nvim-treesitter-context",
+      {
+        "tree-sitter/tree-sitter",
+        build = {
+          "cargo --install --locked tree-sitter-cli", -- Rust
+          "npm install tree-sitter-cli" -- Nodejs
+        }
+      },
     },
-    main = "nvim-treesitter.configs",
     opts = {
-      ensure_installed = { "lua", "c", "bash", "python" },
+      ensure_installed = { "lua", "bash", "c", "python" },
       sync_install = false,
       auto_install = true,
       highlight = {
