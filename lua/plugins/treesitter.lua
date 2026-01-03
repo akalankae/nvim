@@ -5,15 +5,14 @@
 -- Updated (2025-12-30) to work with breaking changes in the main branch
 return {
   "nvim-treesitter/nvim-treesitter",
-  build = "<Cmd>TSUpdate", -- ":TSUpdate"
+  build = ":TSUpdate",
   dependencies = {
-    {
-      "tree-sitter/tree-sitter",
-      build = {
-        "cargo install --locked tree-sitter-cli",
-        "npm install tree-sitter-cli",
-        "sudo pacman -S tree-sitter-cli",
-      },
+  {
+     "tree-sitter/tree-sitter",
+     build = {
+       "cargo --install --locked tree-sitter-cli", -- Rust
+       "npm install tree-sitter-cli" -- Nodejs
+     }
     },
   },
   opts = {

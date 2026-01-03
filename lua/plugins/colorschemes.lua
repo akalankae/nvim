@@ -1,34 +1,19 @@
 --============================================================================
 --                          vim colorschemes
 --============================================================================
-local colorschemes = {
+return {
   -- Theme based on Google's material design
-  { "NLKNguyen/papercolor-theme", lazy = false },
+   "NLKNguyen/papercolor-theme",
 
-  -- dark (charcoal) low-contrast theme (DEFAULT)
-  { "bluz71/vim-moonfly-colors" },
-  { "ofirgall/ofirkai.nvim" },
-  { "scottmckendry/cyberdream.nvim" }, -- high-contrast Cyberpunk vibes!
+  -- high-contrast Cyberpunk vibes!
   {
-    "marko-cerovac/material.nvim",
-    init = function()
-      vim.g.material_style = "deep ocean"
-    end,
+   "scottmckendry/cyberdream.nvim" ,
     opts = {
-      high_visibility = {
-        lighter = true,
+      transparent = true, -- make bg darker on kitty
+      italic_comments = true,
+      highlights = {
+        String = { fg = "#5eff6c", bg = "NONE", italic = true },
       }
-    },
-  },
-  { "tomasr/molokai" },
+    }
+  }
 }
-
--- NOTE: all colorschemes should have highest priority (default=50)
-vim.tbl_map(
-  function(tbl_value)
-    tbl_value.priority = 100
-  end,
-  colorschemes
-)
-
-return colorschemes

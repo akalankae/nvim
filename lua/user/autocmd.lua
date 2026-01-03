@@ -135,3 +135,14 @@ create_autocmd("VimEnter", {
   callback = load_last_colorscheme,
   desc = "Load last used colorscheme on startup"
 })
+
+--=============================================================================
+-- Quickly quit selected buffer types with "q"
+--=============================================================================
+create_autocmd("FileType", {
+  pattern = "qf",
+  callback = function(ev)
+    vim.api.nvim_buf_set_keymap(ev.buf, "n", "q", "<Cmd>quit<CR>", { desc = "quit buffer with q" })
+  end,
+  desc = "Quickly close quickfix windows with `q`"
+})
