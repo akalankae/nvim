@@ -135,6 +135,9 @@ local server_settings = {
 }
 
 return {
+  -- nvim-lspconfig:
+  -- Collection of LSP configs for neovim
+  -- View all configs with `:help lspconfig-all`
   {
     "neovim/nvim-lspconfig",
     init = function()
@@ -171,5 +174,12 @@ return {
         vim.lsp.config(server, settings)
       end
     end,
+  },
+  --- Mason.nvim:
+  --- Portable package manager to manage LSP servers, DAP servers, linters and
+  --- formatters
+  {
+    "mason-org/mason.nvim",
+    opts = {},
   }
 }
