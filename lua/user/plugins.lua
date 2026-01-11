@@ -29,7 +29,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   -- point to lua/plugins/ dir for plugin specs
   spec = {
-    -- Import all plugin configs from lua/plugins/*
+    -- Import all plugin configs from lua/plugins/*.lua
     { import = "plugins" },
   },
 
