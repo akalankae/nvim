@@ -10,7 +10,7 @@ return {
   {
      "tree-sitter/tree-sitter",
      build = {
-       "cargo --install --locked tree-sitter-cli", -- Rust
+       "cargo install --locked tree-sitter-cli", -- Rust
        "npm install tree-sitter-cli" -- Nodejs
      }
     },
