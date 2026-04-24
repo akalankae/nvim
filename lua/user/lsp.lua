@@ -57,3 +57,13 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   callback = _G.FormatOnSave,
   desc = "Format on save with preferred language server"
 })
+
+--
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id) or {}
+    for k, v in pairs(client) do
+      print(k, "-->", v)
+    end
+  end
+})
