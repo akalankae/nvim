@@ -165,10 +165,12 @@ return {
           source = "if_many", -- if multiple diagnostics
         },
       })
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      local found_capabilities, capabilities = pcall(require, "cmp_nvim_lsp")
       for server, settings in pairs(server_settings) do
         settings.on_attach = on_attach
-        settings.capabilities = capabilities
+        if found_capabilities then
+          settings.capabilities = capabilities
+        end
         vim.lsp.config(server, settings)
       end
     end,
