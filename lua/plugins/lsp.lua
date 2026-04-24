@@ -15,6 +15,8 @@ local on_attach = function(client, bufnr)
       vim.notify("Hover provider capability disabled for " .. client.name, vim.log.levels.INFO)
     end)
   end
+  -- Enable omnicompletion triggered by <C-x><C-o>
+  vim.api.nvim_set_option_value("omnifunc", "v:lua.vim.lsp.omnifunc", { buf = bufnr })
 end
 
 -- Server settings for each of the installed LSP servers
