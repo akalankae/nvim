@@ -6,15 +6,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
-  dependencies = {
-  {
-     "tree-sitter/tree-sitter",
-     build = {
-       "cargo install --locked tree-sitter-cli", -- Rust
-       "npm install tree-sitter-cli" -- Nodejs
-     }
-    },
-  },
   opts = {
     ensure_installed = { "lua", "c", "bash", "python" },
     sync_install = false,
