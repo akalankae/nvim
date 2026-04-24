@@ -127,10 +127,6 @@ local server_settings = {
           shadow = true,
         },
         staticcheck = true,
-        -- formatting = {
-        -- gofumpt = true, -- use gofumpt rules for formatting
-        -- goimports = true,
-        -- }
       }
     }
   },
