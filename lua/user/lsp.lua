@@ -8,6 +8,8 @@ vim.lsp.enable({ "lua_ls", "basedpyright", "clangd", "bashls" })
 -- global format-on-save autocommand giving the option for the user to choose
 -- from the list of available LSP servers to format.
 
+local log_level = vim.log.levels.INFO
+
 local function format_on_save()
   local bufnr = vim.api.nvim_get_current_buf()
   local filename = vim.fs.basename(vim.api.nvim_buf_get_name(bufnr))
@@ -17,8 +19,7 @@ local function format_on_save()
   })
   if #clients == 0 then
     vim.schedule(function()
-      vim.notify(string.format("No formatters detected for %s (buffer %d)", filename, bufnr),
-        vim.log.levels.INFO)
+      vim.notify(string.format("No formatters detected for %s (buffer %d)", filename, bufnr), log_level)
     end)
     return
   elseif #clients == 1 then
@@ -27,7 +28,7 @@ local function format_on_save()
     })
     vim.schedule(function()
       vim.notify(string.format("%s formatting %s (buffer %d)", clients[1].name, filename, bufnr),
-        vim.log.levels.INFO)
+        log_level)
     end)
   else
     local choices = {}
@@ -46,7 +47,7 @@ local function format_on_save()
       })
       vim.schedule(function()
         vim.notify(string.format("%s formatting %s (buffer %d)", formatter.name, filename, bufnr),
-          vim.log.levels.INFO)
+          log_level)
       end)
     end
   end
