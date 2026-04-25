@@ -1,5 +1,16 @@
 vim.lsp.enable({ "lua_ls", "basedpyright", "clangd", "bashls" })
 
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id) or {}
+    if client ~= nil then
+      vim.schedule(function()
+        vim.notify(string.format("%s server attached to file %s opened in buffer %d\n",
+          client.name, args.match, args.buf))
+      end)
+    end
+  end
+})
 
 -- Code formatting by attached LSP servers
 -- When multiple LSP servers are attached that have the capability of document
@@ -57,14 +68,4 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   group = vim.api.nvim_create_augroup("GlobalFormatOnSave", { clear = true }),
   callback = format_on_save,
   desc = "Format on save with preferred language server"
-})
-
---
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id) or {}
-    for k, v in pairs(client) do
-      print(k, "-->", v)
-    end
-  end
 })
