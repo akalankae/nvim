@@ -132,7 +132,7 @@ local server_settings = {
   },
 }
 
-return {
+ return {
   -- nvim-lspconfig:
   -- Collection of LSP configs for neovim
   -- View all configs with `:help lspconfig-all`

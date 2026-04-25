@@ -35,10 +35,10 @@ require("lazy").setup({
 
   -- Options for lazy.nvim
   defaults = {
-    lazy = false,                             -- disable lazy-loading by default
+    lazy = false,                              -- disable lazy-loading by default
   },
   install = { colorscheme = { "wildcharm" } }, -- theme when installing plugins
-  checker = { enabled = true },               -- automatically check for plugin updates
+  checker = { enabled = true },                -- automatically check for plugin updates
   lockfile = vim.fn.stdpath("data") .. "/.lazy-lock.json",
   opts = {
     rocks = {
