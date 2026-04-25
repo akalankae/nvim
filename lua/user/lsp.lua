@@ -8,7 +8,7 @@ vim.lsp.enable({ "lua_ls", "basedpyright", "clangd", "bashls" })
 -- global format-on-save autocommand giving the option for the user to choose
 -- from the list of available LSP servers to format.
 
-function _G.FormatOnSave()
+local function format_on_save()
   local bufnr = vim.api.nvim_get_current_buf()
   local filename = vim.fs.basename(vim.api.nvim_buf_get_name(bufnr))
   local clients = vim.lsp.get_clients({
@@ -54,7 +54,7 @@ end
 
 vim.api.nvim_create_autocmd("BufWritePre", {
   group = vim.api.nvim_create_augroup("GlobalFormatOnSave", { clear = true }),
-  callback = _G.FormatOnSave,
+  callback = format_on_save,
   desc = "Format on save with preferred language server"
 })
 
